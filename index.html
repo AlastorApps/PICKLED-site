@@ -357,41 +357,49 @@
             box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
 
-	/* Screenshot Login */
-        .screenshot-login-container {
-            display: flex;
-            justify-content: center;
-            margin: 50px 0;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-		height: 400px;
-		width: auto;
-        }
-
-        .screenshot-login-container::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 20px;
-            right: 20px;
-            height: 20px;
-            background: rgba(0,0,0,0.05);
-            filter: blur(15px);
-            z-index: -1;
-        }
-
-        .screenshot-login-container:hover {
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-        }
-
         .screenshot {
             max-width: 100%;
             height: auto;
             display: block;
         }
+
+	/* Screenshot Login */
+	    .screenshot-login-container {
+    display: inline-block;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Effetto hover */
+.screenshot-login-container:hover {
+    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+}
+
+/* Effetto ombra sotto l'immagine */
+.screenshot-login-container::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    right: 20px;
+    height: 20px;
+    background: rgba(0,0,0,0.05);
+    filter: blur(15px);
+    z-index: -1;
+}
+
+/* L'immagine vera e propria */
+.screenshot-login {
+    max-height: 400px;
+    height: auto;
+    width: auto;
+    display: block;
+}
+
 
 	
         pre {
@@ -704,7 +712,7 @@ python pickled.py</code></pre>
 		        <h3>Access the Application</h3>
 		        <p>Access the web interface at <a href="http://localhost:5000">http://localhost:5000</a></p>
 			<div class="screenshot-login-container animate delay-2">
-				<img src="https://github.com/AlastorApps/pickled/raw/main/static/pickled_screenshot_login_1.2.0.png" alt="PICKLED Interface" class="screenshot">
+				<img src="https://github.com/AlastorApps/pickled/raw/main/static/pickled_screenshot_login_1.2.0.png" alt="PICKLED Interface" class="screenshot-login">
 			</div>
 		        <p>Default credentials: <span class="credentials">jar / cucumber</span></p>
 		    </div>
