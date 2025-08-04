@@ -61,6 +61,27 @@
             overflow: hidden;
         }
 
+	.config-block {
+	    width: 90%;
+	    max-width: 800px;
+	    margin: 25px auto;
+	    position: relative;
+	}
+
+	.credentials {
+	    display: inline-block;
+	    background: var(--primary-light);
+	    color: var(--primary-dark);
+	    padding: 8px 15px;
+	    border-radius: 6px;
+	    font-family: 'Courier New', monospace;
+	    font-weight: bold;
+	    margin: 5px 0;
+	    border-left: 3px solid var(--primary);
+	    box-shadow: var(--shadow-sm);
+	}
+
+	    
         header::before {
             content: '';
             position: absolute;
@@ -592,7 +613,7 @@
                         <i class="fas fa-lock"></i>
                     </div>
                     <h3>Military-Grade Security</h3>
-                    <p>All credentials are encrypted with AES-256 before storage. Role-based access control available.</p>
+                    <p>All credentials are encrypted with AES-256 before storage.</p>
                 </div>
                 
                 <div class="feature-card animate delay-1">
@@ -646,42 +667,42 @@ python pickled.py</code></pre>
                     </div>
                 </div>
                 
-                <div class="step animate delay-3">
-                    <div class="step-number">3</div>
-                    <div>
-                        <h3>Access the Application</h3>
-                        <p>Access the web interface at <a href="http://localhost:5000">http://localhost:5000</a></p>
-                        <p>Default credentials: jar / cucumber</p>
-                    </div>
-                </div>
+		<div class="step animate delay-3">
+		    <div class="step-number">3</div>
+		    <div>
+		        <h3>Access the Application</h3>
+		        <p>Access the web interface at <a href="http://localhost:5000">http://localhost:5000</a></p>
+		        <p>Default credentials: <span class="credentials">jar / cucumber</span></p>
+		    </div>
+		</div>
             </div>
         </section>
 
-        <section id="configuration">
-            <h2 class="animate">Custom Configuration</h2>
-            
-            <div class="animate delay-1">
-                <h3>Environment Variables</h3>
-                <pre><code># Set custom admin credentials
-export PICKLED_USERNAME=admin
-export PICKLED_PASSWORD=yoursecurepassword
-
-# Change listening port
-export PICKLED_PORT=8080
-
-# Enable debug mode
-export PICKLED_DEBUG=true</code></pre>
-            </div>
-            
-            <div class="animate delay-2" style="margin-top: 30px;">
-                <h3>Docker Quick Start</h3>
-                <pre><code>docker run -d \
-  -p 5000:5000 \
-  -e PICKLED_USERNAME=admin \
-  -e PICKLED_PASSWORD=secure \
-  ghcr.io/AlastorApps/pickled:latest</code></pre>
-            </div>
-        </section>
+	<section id="configuration">
+	    <h2 class="animate">Custom Configuration</h2>
+	    
+	    <div class="animate delay-1 config-block">
+	        <h3>Environment Variables</h3>
+	        <pre><code># Set custom admin credentials
+	export PICKLED_USERNAME=admin
+	export PICKLED_PASSWORD=yoursecurepassword
+	
+	# Change listening port
+	export PICKLED_PORT=8080
+	
+	# Enable debug mode
+	export PICKLED_DEBUG=true</code></pre>
+	    </div>
+	    
+	    <div class="animate delay-2 config-block" style="margin-top: 40px;">
+	        <h3>Docker Quick Start</h3>
+	        <pre><code>docker run -d \
+	  -p 5000:5000 \
+	  -e PICKLED_USERNAME=admin \
+	  -e PICKLED_PASSWORD=secure \
+	  ghcr.io/AlastorApps/pickled:latest</code></pre>
+	    </div>
+	</section>
     </main>
 
     <footer>
