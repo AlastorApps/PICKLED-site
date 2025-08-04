@@ -362,54 +362,60 @@
             display: block;
         }
 
-        /* Code blocks */
-        pre {
-            background: var(--dark);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            overflow-x: auto;
-            margin: 25px 0;
-            font-family: 'Courier New', monospace;
-            box-shadow: var(--shadow-md);
-            border-left: 4px solid var(--accent);
-            position: relative;
-            margin-left: 0;
-            margin-right: 0;
+
+	pre {
+	    background: var(--dark);
+	    color: white;
+	    padding: 35px 25px 25px; 
+	    border-radius: 12px;
 	    overflow-x: auto;
+	    margin: 25px auto; 
+	    font-family: 'Courier New', monospace;
+	    box-shadow: var(--shadow-md);
+	    border-left: 4px solid var(--accent);
+	    position: relative;
+	    width: 90%; 
+	    max-width: 900px; 
+	    box-sizing: border-box;
 	    -webkit-overflow-scrolling: touch;
+	}
 
-        }
+	pre::before {
+	    content: 'Terminal'; 
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    background: rgba(255,255,255,0.1);
+	    color: var(--gray);
+	    padding: 5px 15px;
+	    border-bottom-right-radius: 8px;
+	    font-size: 0.8rem;
+	    font-family: 'Inter', sans-serif;
+	}
 
-        pre::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: rgba(255,255,255,0.1);
-            color: var(--gray);
-            padding: 5px 15px;
-            border-bottom-right-radius: 8px;
-            font-size: 0.8rem;
-            font-family: 'Inter', sans-serif;
-        }
 	pre code {
-   	    display: block;
-   	    overflow: visible;
-   	    position: relative;
-  	    left: 0;
+	    display: block;
+	    white-space: pre;
+	    overflow-x: auto;
 	    padding: 0;
-   	    margin: 0;
-   	    text-indent: 0;
-	    min-width: fit-content;
-	}       
- 	code {
-            font-family: 'Courier New', monospace;
-     
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: var(--accent);
-        }
+	    margin: 0;
+	    font-size: inherit;
+	    line-height: 1.5;
+	    min-width: min-content; 
+	}
+
+
+	@media (max-width: 768px) {
+	    pre {
+	        width: 95%; 
+	        padding: 30px 15px 15px; 
+	    }
+	    
+	    pre::before {
+	        padding: 4px 12px;
+	        font-size: 0.7rem;
+	    }
+	}
 
         /* Installation */
         .steps {
