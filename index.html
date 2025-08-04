@@ -110,13 +110,34 @@
             z-index: 1;
         }
 
-        .logo {
-            width: 90px;
-            height: 90px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
-            transition: var(--transition);
-        }
+        .logo-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: visible;
+}
+
+.logo-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 40%, transparent 80%);
+    z-index: 0;
+    filter: blur(12px);
+    pointer-events: none;
+}
+
+.logo {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 1;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+    transition: var(--transition);
+}
 
 
         .header-content {
@@ -591,7 +612,9 @@
     <header>
         <div class="container">
             <div class="logo-container animate">
-                <img src="https://github.com/AlastorApps/pickled/raw/main/static/PICKLED_logo320.png" alt="PICKLED Logo" class="logo">
+		<div class="logo-wrapper">
+			<img src="https://github.com/AlastorApps/pickled/raw/main/static/PICKLED_logo320.png" alt="PICKLED Logo" class="logo">
+		</div>
                 <div class="header-content">
                     <h1>PICKLED</h1>
                     <p>Platform for Instant Config Keep & Lightweight Export Daemon</p>
