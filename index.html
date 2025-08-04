@@ -339,7 +339,7 @@
     <header>
         <div class="container">
             <div class="logo-container animate">
-                <img src="https://github.com/AlastorApps/pickled/raw/main/PICKLED_logo320.png" alt="PICKLED Logo" class="logo">
+                <img src="https://github.com/AlastorApps/pickled/blob/main/static/PICKLED_logo320.png" alt="PICKLED Logo" class="logo">
                 <div class="header-content">
                     <h1>PICKLED</h1>
                     <p>Platform for Instant Config Keep & Lightweight Export Daemon</p>
@@ -371,7 +371,7 @@
             </p>
 
             <div class="screenshot-container animate delay-2">
-                <img src="https://raw.githubusercontent.com/yourusername/pickled/main/screenshots/main_interface.png" alt="PICKLED Interface" class="screenshot">
+                <img src="https://github.com/AlastorApps/pickled/blob/main/static/screenshot_1.png" alt="PICKLED Interface" class="screenshot">
             </div>
         </section>
 
@@ -421,10 +421,10 @@
                 
                 <div class="feature-card animate delay-3">
                     <div class="feature-icon">
-                        <i class="fas fa-plug"></i>
+                        <i class="fas fa-file-export"></i>
                     </div>
-                    <h3>REST API</h3>
-                    <p>Integrate with your existing tools using our comprehensive API. Webhooks for event notifications.</p>
+                    <h3>Easy Configuration Export</h3>
+                    <p>Quickly extract configurations in multiple formats (JSON, XML, plain text) for analysis or backup purposes.</p>
                 </div>
             </div>
         </section>
@@ -436,25 +436,28 @@
                 <div class="step animate delay-1">
                     <div class="step-number">1</div>
                     <div>
-                        <h3>Clone the repository</h3>
-                        <pre><code>git clone https://github.com/yourusername/pickled.git
-cd pickled</code></pre>
+                        <h3>Recommended Method</h3>
+                        <pre><code>wget https://github.com/AlastorApps/pickled-app/blob/main/install.sh
+chmod +x install.sh
+./install.sh</code></pre>
                     </div>
                 </div>
                 
                 <div class="step animate delay-2">
                     <div class="step-number">2</div>
                     <div>
-                        <h3>Install dependencies</h3>
-                        <pre><code>pip install -r requirements.txt</code></pre>
+                        <h3>Alternative Method: Manual Installation</h3>
+                        <pre><code>git clone https://github.com/AlastorApps/pickled.git
+cd pickled
+pip install -r requirements.txt
+python pickled.py</code></pre>
                     </div>
                 </div>
                 
                 <div class="step animate delay-3">
                     <div class="step-number">3</div>
                     <div>
-                        <h3>Run the application</h3>
-                        <pre><code>python pickled.py</code></pre>
+                        <h3>Access the Application</h3>
                         <p>Access the web interface at <a href="http://localhost:5000">http://localhost:5000</a></p>
                         <p>Default credentials: <code>jar / cucumber</code></p>
                     </div>
@@ -492,7 +495,7 @@ export PICKLED_DEBUG=true</code></pre>
     <footer>
         <div class="container">
             <div class="animate">
-                <img src="https://raw.githubusercontent.com/AlastorApps/pickled/main/PICKLED_logo320.png" alt="PICKLED Logo" width="60" style="opacity: 0.8; margin-bottom: 20px;">
+                <img src="https://github.com/AlastorApps/pickled/blob/main/static/PICKLED_logo320.png" alt="PICKLED Logo" width="60" style="opacity: 0.8; margin-bottom: 20px;">
                 <p>Simplify your network configuration management</p>
             </div>
             
@@ -537,7 +540,4 @@ export PICKLED_DEBUG=true</code></pre>
         });
     </script>
 </body>
-
 </html>
-
-  
