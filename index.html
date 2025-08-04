@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="okwm-WuAAYxDCFdBXbT81oDVd3NBFqG2TfzJxx3CImI" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <title>PICKLED - Network Configuration Backup Tool</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,22 +33,37 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: var(--dark);
             background-color: var(--light);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             font-weight: 700;
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         /* Header */
@@ -62,27 +78,6 @@
             overflow: hidden;
         }
 
-	.config-block {
-	    width: 90%;
-	    max-width: 800px;
-	    margin: 25px auto;
-	    position: relative;
-	}
-
-	.credentials {
-	    display: inline-block;
-	    background: var(--primary-light);
-	    color: var(--primary-dark);
-	    padding: 8px 15px;
-	    border-radius: 6px;
-	    font-family: 'Courier New', monospace;
-	    font-weight: bold;
-	    margin: 5px 0;
-	    border-left: 3px solid var(--primary);
-	    box-shadow: var(--shadow-sm);
-	}
-
-	    
         header::before {
             content: '';
             position: absolute;
@@ -110,53 +105,52 @@
             z-index: 1;
         }
 
-.logo-wrapper {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: visible;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .logo-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: visible;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.logo-wrapper::before {
-    content: '';
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
-    z-index: 0;
-    filter: blur(15px);
-    pointer-events: none;
-}
+        .logo-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+            filter: blur(15px);
+            pointer-events: none;
+        }
 
-.logo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    z-index: 1;
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
-    transition: var(--transition);
-}
-
-
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            z-index: 1;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+            transition: var(--transition);
+            object-fit: contain;
+        }
 
         .header-content {
             width: 100%;
         }
 
         .header-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             margin-bottom: 15px;
             color: white;
             text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .header-content p {
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
             max-width: 700px;
             margin: 0 auto 30px;
             opacity: 0.9;
@@ -212,6 +206,9 @@
             box-shadow: var(--shadow-sm);
             position: relative;
             overflow: hidden;
+            border: none;
+            cursor: pointer;
+            text-decoration: none !important;
         }
 
         .btn::before {
@@ -238,6 +235,7 @@
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            text-decoration: none;
         }
 
         .btn-secondary {
@@ -251,6 +249,7 @@
             background: rgba(255,255,255,0.2);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-decoration: none;
         }
 
         /* Main content */
@@ -264,9 +263,8 @@
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 5vw, 2.5rem);
             color: var(--primary-dark);
-            margin-bottom: 40px;
             text-align: center;
             width: 100%;
         }
@@ -284,7 +282,6 @@
         h3 {
             font-size: 1.5rem;
             color: var(--primary-dark);
-            margin-bottom: 20px;
             position: relative;
             display: inline-block;
         }
@@ -363,6 +360,7 @@
             transition: var(--transition);
             transform: perspective(1000px) rotateX(5deg) rotateY(0deg) rotateZ(0deg);
             position: relative;
+            max-width: 100%;
         }
 
         .screenshot-container::after {
@@ -386,92 +384,144 @@
             max-width: 100%;
             height: auto;
             display: block;
+            width: 100%;
         }
 
-	/* Screenshot Login */
-	    .screenshot-login-container {
-    display: inline-block;
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s ease;
-}
-
-/* Effetto hover */
-.screenshot-login-container:hover {
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-}
-
-/* Effetto ombra sotto l'immagine */
-.screenshot-login-container::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 20px;
-    right: 20px;
-    height: 20px;
-    background: rgba(0,0,0,0.05);
-    filter: blur(15px);
-    z-index: -1;
-}
-
-/* L'immagine vera e propria */
-.screenshot-login {
-    max-height: 420px;
-    height: auto;
-    width: auto;
-    display: block;
-}
-
-
-	
-        pre {
-            background: var(--dark);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            overflow-x: auto;
-            margin: 25px 0;
-            font-family: 'Courier New', monospace;
-            box-shadow: var(--shadow-md);
-            border-left: 4px solid var(--accent);
+        /* Screenshot Login */
+        .screenshot-login-container {
+            display: inline-block;
             position: relative;
-            margin-left: 0;
-            margin-right: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+            max-width: 100%;
+            margin: 20px 0;
         }
 
-        pre::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: rgba(255,255,255,0.1);
-            color: var(--gray);
-            padding: 5px 15px;
-            border-bottom-right-radius: 8px;
-            font-size: 0.8rem;
-            font-family: 'Inter', sans-serif;
+        .screenshot-login-container:hover {
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
         }
-	pre code {
-   	    display: block;
-   	    overflow: visible;
-   	    position: relative;
-  	    left: 0;
-	    padding: 0;
-   	    margin: 0;
-   	    text-indent: 0;
-	    min-width: fit-content;
-	}       
- 	code {
+
+        .screenshot-login-container::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 20px;
+            right: 20px;
+            height: 20px;
+            background: rgba(0,0,0,0.05);
+            filter: blur(15px);
+            z-index: -1;
+        }
+
+        .screenshot-login {
+            max-height: 420px;
+            height: auto;
+            width: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Configuration blocks */
+        .config-block {
+            width: 100%;
+            max-width: 800px;
+            margin: 25px auto;
+            position: relative;
+        }
+
+        .credentials {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 8px 15px;
+            border-radius: 6px;
             font-family: 'Courier New', monospace;
-     
-            padding: 3px 8px;
+            font-weight: bold;
+            margin: 5px 0;
+            border-left: 3px solid var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Code blocks */
+	.code-container {
+	    position: relative;
+	    margin: 25px 0;
+	    border-radius: 12px;
+	    overflow: hidden;
+	    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+	    background: #263238;
+	    border: 1px solid rgba(255,255,255,0.1);
+	}
+	
+	.code-header {
+	    background: #1a2a30;
+	    color: #eceff1;
+	    padding: 10px 15px;
+	    font-family: 'Inter', sans-serif;
+	    font-size: 0.9rem;
+	    display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+	    border-bottom: 1px solid rgba(255,255,255,0.05);
+	}
+	
+	.code-copy {
+	    background: rgba(45,131,113,0.3);
+	    border: none;
+	    color: white;
+	    padding: 5px 12px;
+	    border-radius: 4px;
+	    cursor: pointer;
+	    font-size: 0.8rem;
+	    transition: all 0.3s ease;
+	    display: flex;
+	    align-items: center;
+	    gap: 5px;
+	}
+	
+	.code-copy:hover {
+	    background: rgba(45,131,113,0.5);
+	    transform: translateY(-1px);
+	}
+
+	pre {
+     	    background: #263238;
+    	    color: #f5f7fa;
+       	    padding: 20px;
+	    margin: 0;
+  	    font-family: 'Courier New', monospace;
+    	    overflow-x: auto;
+   	    -webkit-overflow-scrolling: touch;
+    	    line-height: 1.5;
+   	    font-size: 0.95em;
+	}
+
+        pre code {
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 0;
+            margin: 0;
+            background: transparent;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            padding: 3px 6px;
             border-radius: 4px;
             font-size: 0.9em;
             color: var(--accent);
+            background: rgba(45,131,113,0.1);
+            word-break: break-word;
         }
-	    
+        
         /* Installation */
         .steps {
             display: flex;
@@ -537,6 +587,7 @@
             justify-content: center;
             gap: 25px;
             margin: 30px 0;
+            flex-wrap: wrap;
         }
 
         .footer-link {
@@ -551,6 +602,7 @@
         .footer-link:hover {
             color: var(--accent);
             transform: translateY(-2px);
+            text-decoration: none;
         }
 
         /* Particles */
@@ -568,6 +620,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(5px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
 
         .animate {
             animation: fadeIn 0.8s ease-out forwards;
@@ -583,12 +640,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .header-content h1 {
-                font-size: 2.5rem;
+            header {
+                padding: 80px 0 60px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
             }
             
-            .header-content p {
-                font-size: 1.1rem;
+            .logo-wrapper {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .logo-wrapper::before {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .logo {
+                width: 150px;
+                height: 150px;
             }
             
             .cta-buttons {
@@ -602,12 +671,80 @@
                 justify-content: center;
             }
 
-            .features {
-                grid-template-columns: 1fr;
+            section {
+                padding: 60px 0;
+            }
+            
+            .step {
+                flex-direction: column;
+                gap: 15px;
             }
 
-            h2 {
-                font-size: 2rem;
+            pre {
+                padding: 15px;
+                border-radius: 0 0 8px 8px;
+            }
+
+            .code-header {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            footer {
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0% 100%);
+                padding: 50px 0 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 60px 0 40px;
+            }
+            
+            .badge {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .feature-card {
+                padding: 25px 20px;
+            }
+            
+            .feature-icon {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            
+            pre {
+                padding: 12px;
+                font-size: 0.85rem;
+            }
+
+            pre code {
+                font-size: 0.85em;
+            }
+
+            .step {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header-content p {
+                font-size: 1rem;
+            }
+            
+            pre {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+
+            pre code {
+                font-size: 0.8em;
             }
         }
     </style>
@@ -616,9 +753,9 @@
     <header>
         <div class="container">
             <div class="logo-container animate">
-		<div class="logo-wrapper">
-			<img src="https://github.com/AlastorApps/pickled/raw/main/static/PICKLED_logo320.png" alt="PICKLED Logo" class="logo">
-		</div>
+                <div class="logo-wrapper">
+                    <img src="https://github.com/AlastorApps/pickled/raw/main/static/PICKLED_logo320.png" alt="PICKLED Logo" class="logo">
+                </div>
                 <div class="header-content">
                     <h1>PICKLED</h1>
                     <p>Platform for Instant Config Keep & Lightweight Export Daemon</p>
@@ -644,7 +781,7 @@
 
     <main class="container">
         <section id="about">
-            <h2 class="animate" style="text-align: center;">Modern Network Configuration Backup</h2>
+            <h2 class="animate">Modern Network Configuration Backup</h2>
             <p class="animate delay-1" style="text-align: center; max-width: 800px; margin: 0 auto 40px;">
                 PICKLED is a lightweight yet powerful web application designed for network administrators to automate the backup of device configurations with enterprise-grade security and flexible scheduling.
             </p>
@@ -716,9 +853,17 @@
                     <div class="step-number">1</div>
                     <div>
                         <h3>Recommended Method</h3>
-                        <pre><code>wget https://github.com/AlastorApps/pickled-app/blob/main/install.sh
-chmod +x install.sh
-./install.sh</code></pre>
+			<div class="code-container">
+    				<div class="code-header">
+        				<span>Terminal</span>
+        				<button class="code-copy" onclick="copyCode(this)">
+            					<i class="far fa-copy"></i> Copy
+        				</button>
+    				</div>
+    				<pre><code>wget https://github.com/AlastorApps/pickled-app/blob/main/install.sh
+					   chmod +x install.sh
+				   	   ./install.sh</code></pre>
+			</div>
                     </div>
                 </div>
                 
@@ -726,54 +871,76 @@ chmod +x install.sh
                     <div class="step-number">2</div>
                     <div>
                         <h3>Alternative Method: Manual Installation</h3>
-                        <pre><code>git clone https://github.com/AlastorApps/pickled-app.git
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="code-copy" onclick="copyCode(this)">
+                                    <i class="far fa-copy"></i> Copy
+                                </button>
+                            </div>
+                            <pre><code>git clone https://github.com/AlastorApps/pickled-app.git
 cd pickled
 pip install -r requirements.txt
 python pickled.py</code></pre>
+                        </div>
                     </div>
                 </div>
                 
-		<div class="step animate delay-3">
-		    <div class="step-number">3</div>
-		    <div>
-		        <h3>Access the Application</h3>
-		        <p>Access the web interface at <a href="http://localhost:5000">http://localhost:5000</a></p>
-			    <br/>
-			<div class="screenshot-login-container animate delay-2">
-				<img src="https://github.com/AlastorApps/pickled/raw/main/static/pickled_screenshot_login_1.2.0.png" alt="PICKLED Interface" class="screenshot-login">
-			</div>
-			    <br/><br/>
-		        <p>Default credentials: <span class="credentials">jar / cucumber</span></p>
-		    </div>
-		</div>
+                <div class="step animate delay-3">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Access the Application</h3>
+                        <p>Access the web interface at <a href="http://localhost:5000">http://localhost:5000</a></p>
+                        <div class="screenshot-login-container animate delay-2">
+                            <img src="https://github.com/AlastorApps/pickled/raw/main/static/pickled_screenshot_login_1.2.0.png" alt="PICKLED Login Interface" class="screenshot-login">
+                        </div>
+                        <p>Default credentials: <span class="credentials">jar / cucumber</span></p>
+                    </div>
+                </div>
             </div>
         </section>
 
-	<section id="configuration">
-	    <h2 class="animate">Custom Configuration</h2>
-	    
-	    <div class="animate delay-1 config-block">
-	        <h3>Environment Variables</h3>
-	        <pre><code># Set custom admin credentials
-	export PICKLED_USERNAME=admin
-	export PICKLED_PASSWORD=yoursecurepassword
-	
-	# Change listening port
-	export PICKLED_PORT=8080
-	
-	# Enable debug mode
-	export PICKLED_DEBUG=true</code></pre>
-	    </div>
-	    
-	    <div class="animate delay-2 config-block" style="margin-top: 40px;">
-	        <h3>Docker Quick Start</h3>
-	        <pre><code>docker run -d \
-	  -p 5000:5000 \
-	  -e PICKLED_USERNAME=admin \
-	  -e PICKLED_PASSWORD=secure \
-	  ghcr.io/AlastorApps/pickled:latest</code></pre>
-	    </div>
-	</section>
+        <section id="configuration">
+            <h2 class="animate">Custom Configuration</h2>
+            
+            <div class="animate delay-1 config-block">
+                <h3>Environment Variables</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Configuration</span>
+                        <button class="code-copy" onclick="copyCode(this)">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <pre><code># Set custom admin credentials
+export PICKLED_USERNAME=admin
+export PICKLED_PASSWORD=yoursecurepassword
+
+# Change listening port
+export PICKLED_PORT=8080
+
+# Enable debug mode
+export PICKLED_DEBUG=true</code></pre>
+                </div>
+            </div>
+            
+            <div class="animate delay-2 config-block" style="margin-top: 40px;">
+                <h3>Docker Quick Start</h3>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span>Docker Command</span>
+                        <button class="code-copy" onclick="copyCode(this)">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <pre><code>docker run -d \
+  -p 5000:5000 \
+  -e PICKLED_USERNAME=admin \
+  -e PICKLED_PASSWORD=secure \
+  ghcr.io/AlastorApps/pickled:latest</code></pre>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -851,6 +1018,25 @@ python pickled.py</code></pre>
             
             createParticles();
         });
+
+        // Copy code functionality
+        function copyCode(button) {
+            const codeContainer = button.closest('.code-container');
+            const codeBlock = codeContainer.querySelector('pre code');
+            const textToCopy = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Change button text temporarily
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
     </script>
 </body>
 </html>
